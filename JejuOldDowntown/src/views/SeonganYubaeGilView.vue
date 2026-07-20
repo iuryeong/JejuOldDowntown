@@ -2,6 +2,8 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import exileVideo from '@/assets/image/seongan/exile.mp4'
+import sehandoImg from '@/assets/image/seongan/sehando.png'
+import chusaImg from '@/assets/image/seongan/chusa.png'
 
 const router = useRouter()
 
@@ -132,12 +134,20 @@ function goHome() {
           한 채와 소나무, 잣나무를 간결하게 표현하고 넓은 여백을 두어 겨울의 적막한 분위기를
           담아냈으며, 소나무와 잣나무는 어려운 상황에서도 변하지 않는 절개와 의리를 상징합니다.
         </p>
+        <figure class="intro-figure">
+          <img :src="sehandoImg" alt="세한도" class="intro-figure__img" />
+          <figcaption>세한도(歲寒圖), 국보</figcaption>
+        </figure>
         <p>
           <strong>추사체</strong> — 옛 서체를 깊이 연구하고 금석학을 바탕으로 기존의 형식을
           뛰어넘어 완성한 독창적인 서체입니다. '법고창신(法古創新)', 즉 옛것을 본받아 새로운 것을
           창조한다는 철학이 잘 나타나며, 힘차면서도 절제된 필획과 자유로운 글자 구성이 특징입니다.
           오늘날에도 한국 서예를 대표하는 서체로 평가받고 있습니다.
         </p>
+        <figure class="intro-figure">
+          <img :src="chusaImg" alt="추사체" class="intro-figure__img" />
+          <figcaption>추사체 서예 작품</figcaption>
+        </figure>
         <p>시련은 위대한 예술이 되었습니다.</p>
       </section>
 
@@ -311,6 +321,24 @@ function goHome() {
   margin: 0 0 16px;
   line-height: 1.85;
   color: rgba(248, 243, 234, 0.88);
+}
+
+.intro-figure {
+  margin: 0 0 24px;
+  text-align: center;
+}
+
+.intro-figure__img {
+  display: block;
+  width: 100%;
+  border-radius: 14px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
+}
+
+.intro-figure figcaption {
+  margin-top: 10px;
+  font-size: 0.82rem;
+  color: rgba(248, 243, 234, 0.55);
 }
 
 .intro__sources {
