@@ -1,0 +1,41 @@
+:root {
+  color-scheme: dark;
+  --bg: #f6ede3;
+  --surface: #fff8f0;
+  --primary: #7d4e2b;
+  --primary-soft: #c9a27e;
+  --text: #2e261a;
+  --muted: #7b6a57;
+  --border: rgba(125, 78, 43, 0.2);
+  --radius: 24px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  min-height: 100%;
+}
+
+html {
+  background: #0f2d2e;
+}
+
+body {
+  margin: 0;
+  font-family: 'Noto Sans KR', 'Pretendard', -apple-system, sans-serif;
+  background: radial-gradient(circle at top, rgba(255, 242, 226, 0.9), transparent 35%),
+    linear-gradient(180deg, #f6ede3 0%, #f0e4d4 100%);
+  color: var(--text);
+}
+
+button {
+  font: inherit;
+}
+
+main {
+  min-height: 100vh;
+}
