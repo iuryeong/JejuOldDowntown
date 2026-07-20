@@ -25,7 +25,16 @@ const regionInfo = [
     ],
   },
   { title: '대정읍', victims: 622, labelOffset: { x: 8, y: -8 } },
-  { title: '안덕면', victims: 679, labelOffset: { x: -16, y: 0 } },
+  {
+    title: '안덕면',
+    victims: 679,
+    labelOffset: { x: -16, y: 0 },
+    items: [
+      {
+        text: '홍춘호 할머니 — 안덕면 동광리 무등이왓에 살던 중 4·3 소개령 이후 해안선 5km 밖으로 내려가지 못해 토벌대에 쫓기다 큰넓궤에 몸을 숨겼습니다. 마을로 내려오면 살려주겠다는 말에 내려간 주민 120여 명은 서귀포 정방폭포 인근 단추공장 건물에 임시 수용됐다가, 정방폭포 위에서 집단학살당했습니다.',
+      },
+    ],
+  },
   { title: '애월읍', victims: 1579, labelOffset: { x: -24, y: 0 } },
   { title: '중문', victims: 733, labelOffset: { x: 8, y: 0 } },
   {
@@ -75,8 +84,25 @@ const regionInfo = [
   { title: '남원읍', victims: 965, labelOffset: { x: 8, y: 0 } },
   { title: '표선면', victims: 696, labelOffset: { x: 16, y: 0 } },
   { title: '조천읍', victims: 1859, labelOffset: { x: 24, y: 0 } },
-  { title: '구좌읍', victims: 915 },
-  { title: '성산읍', victims: 471, labelOffset: { x: -8, y: 0 } },
+  {
+    title: '구좌읍',
+    victims: 915,
+    items: [
+      {
+        text: '고(故) 채정옥 할아버지 — 1948년 11월 토벌대를 피해 다랑쉬굴에 머물렀다가 다른 피난처로 옮겼습니다. 12월 18일 대토벌 작전이 시작된 뒤 굴로 돌아가 보니 입구가 막혀 있었고, 안에서는 연기를 피해 벽에 붙은 채 질식사한 주민들이 있었습니다. 토벌대는 굴 안으로 총격을 가하고 입구에 불을 피운 뒤 끝내 입구를 막아버렸습니다. 채정옥 할아버지는 시신을 한 분 한 분 가지런히 눕히고 번호와 이름을 기록했습니다.',
+      },
+    ],
+  },
+  {
+    title: '성산읍',
+    victims: 471,
+    labelOffset: { x: -8, y: 0 },
+    items: [
+      {
+        text: "고(故) 문형순 서장님 — 성산읍경찰서장으로 재직하며 학살 위기에 처한 도민들을 구했습니다. 모슬포경찰서장 시절에는 좌익 혐의를 받던 주민 100여 명을 자수시킨 뒤 훈방했고, 1950년 성산포경찰서장으로 재임할 때는 군 당국의 예비검속자 총살 명령에 '부당하므로 불이행한다'며 거부해 250여 명의 목숨을 구했습니다.",
+      },
+    ],
+  },
 ]
 
 const rawPaths = [...jejuMapRaw.matchAll(/<path[^>]*\sd="([^"]+)"/g)].map((m) => m[1])
@@ -189,13 +215,14 @@ onMounted(async () => {
       <ul class="map-stats__breakdown">
         <li>북제주군 <strong>9,359명</strong></li>
         <li>남제주군 <strong>4,740명</strong></li>
-        <li>도외 <strong>66명</strong></li>
+        <li>본적지가 파악되지 않은 인원 <strong>66명</strong></li>
       </ul>
       <p class="map-stats__caption">
         본 분포지도는 현재까지 희생자로 신고되어 인정된 4·3희생자명단에 근거한 마을별 분포지도입니다.
       </p>
       <p class="map-stats__source">
-        출처: 《제주4·3희생자유족회 27년사》, 제주4·3희생자유족회
+        출처: 《제주4·3희생자유족회 27년사》, 제주4·3희생자유족회</br>
+        참고 사진 출처: 시사IN, 4·3 일지 및 희생자 분포 지도, 2018.04.02 19:28
       </p>
     </section>
 

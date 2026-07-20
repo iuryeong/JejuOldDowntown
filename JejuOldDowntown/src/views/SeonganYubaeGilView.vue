@@ -1,7 +1,20 @@
 <script setup>
+import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+import exileVideo from '@/assets/image/seongan/exile.mp4'
 
 const router = useRouter()
+
+const introStarted = ref(false)
+const videoEnded = ref(false)
+
+function onVideoEnded() {
+  videoEnded.value = true
+}
+
+function startIntro() {
+  introStarted.value = true
+}
 
 function goToMap() {
   router.push({ name: 'seongan-map' })
@@ -12,7 +25,22 @@ function goHome() {
 </script>
 
 <template>
-  <main class="intro">
+  <main v-if="!introStarted" class="video-stage">
+    <button class="video-stage__back" @click="goHome">← 홈으로</button>
+    <video
+      :src="exileVideo"
+      class="video-stage__video"
+      autoplay
+      controls
+      playsinline
+      @ended="onVideoEnded"
+    ></video>
+    <button v-if="videoEnded" class="video-stage__start-btn" @click="startIntro">
+      유배길 시작하기
+    </button>
+  </main>
+
+  <main v-else class="intro">
     <header class="intro__header">
       <button class="intro__back" @click="goHome">← 홈으로</button>
       <p class="intro__eyebrow">기록된 발걸음</p>
@@ -147,6 +175,56 @@ function goHome() {
 </template>
 
 <style scoped>
+.video-stage {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  padding: 24px;
+  background: #0f2d2e;
+}
+
+.video-stage__back {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  border: none;
+  background: transparent;
+  color: rgba(248, 243, 234, 0.7);
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.video-stage__back:hover {
+  color: #ffd27a;
+}
+
+.video-stage__video {
+  width: min(900px, 100%);
+  max-height: 80vh;
+  border-radius: 20px;
+}
+
+.video-stage__start-btn {
+  padding: 14px 32px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 999px;
+  background: transparent;
+  color: #f8f3ea;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.video-stage__start-btn:hover {
+  background: rgba(255, 210, 122, 0.15);
+  transform: translateY(-1px);
+}
+
 .intro {
   min-height: 100vh;
   background: #0f2d2e;
